@@ -1,0 +1,31 @@
+{
+  "name": "blog-app-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon test/todo.test.ts",
+    "dev": "nodemon src/index.ts",
+    "start": "nodemon dist/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "joi": "^17.6.0",
+    "mongoose": "^6.4.4",
+    "sqlite": "^4.1.2",
+    "sqlite3": "^5.1.1",
+    "ts-node": "^10.8.2",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/joi": "^17.2.3",
+    "@types/node": "^18.0.0",
+    "@types/uuid": "^8.3.4",
+    "nodemon": "^2.0.16"
+  }
+}
