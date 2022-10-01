@@ -1,7 +1,7 @@
 
 import sqlite3 from 'sqlite3'
 import { open } from 'sqlite'
-import { CREATE_SCRIPTS } from './config'
+import { POSTS_TABLE_SCRIPTS } from './config'
 
 (async () => {
   // open the database
@@ -10,7 +10,7 @@ import { CREATE_SCRIPTS } from './config'
     driver: sqlite3.Database
   })
 
-  await db.exec(CREATE_SCRIPTS)
+  await db.exec(POSTS_TABLE_SCRIPTS)
   console.info('successfully created table posts')
 })()
 

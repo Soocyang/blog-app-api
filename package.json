@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "initdb": "ts-node src/initDB.ts",
     "test": "nodemon test/todo.test.ts",
     "dev": "nodemon src/index.ts",
     "start": "nodemon dist/index.ts"

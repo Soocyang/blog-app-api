@@ -1,12 +1,12 @@
 import { Router } from 'express'
 
 
-import { getPosts } from '../controllers/posts'
+import { getPosts, createPost } from '../controllers/posts'
 
 const router = Router()
 
 router.get('/', getPosts);
-// router.get('/', getTodos);
+router.post('/', createPost);
 // router.patch('/:id', updateTodo);
 // router.delete('/:id', deleteTodo);
 

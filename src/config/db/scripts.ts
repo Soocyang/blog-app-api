@@ -1,4 +1,4 @@
-export const CREATE_SCRIPTS = `
+export const POSTS_TABLE_SCRIPTS = `
 CREATE TABLE IF NOT EXISTS post ( 
   id TEXT PRIMARY KEY, 
   title TEXT, 
@@ -7,8 +7,8 @@ CREATE TABLE IF NOT EXISTS post (
   summary TEXT, 
   is_published TINYINT(1), 
   published_at DATETIME, 
-  created_at DATETIME, 
-  modified_at DATETIME 
+  created_at DEFAULT CURRENT_TIMESTAMP, 
+  modified_at DEFAULT CURRENT_TIMESTAMP 
 )
 `
 
@@ -32,5 +32,11 @@ INSERT INTO post (
   'is_published',
   'published_at',
   'created_at',
-  'modified_at')
+  'modified_at'
+  )
+`
+
+export const FETCH_POSTS = `
+SELECT * 
+FROM post
 `
