@@ -20,12 +20,12 @@ class PostsService {
 
   }
 
-  updatePostById() {
+  async updatePostById(id: string, payload: Partial<PostSchema>) {
 
   }
 
-  deletePostById() {
-
+  async deletePostById(id: string) {
+    return await this.model.deleteOne(id)
   }
 }
 

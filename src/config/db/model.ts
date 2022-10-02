@@ -35,7 +35,9 @@ export default class Model<TableName> {
   updateOne() {
     console.log('updateOne')
   }
-  deleteOne() {
-    console.log('deleteOne')
+
+  async deleteOne(id: string) {
+    const db = await connectDB()
+    return await db.run(`DELETE FROM ${this.table} WHERE id = '${id}'`)
   }
 }
