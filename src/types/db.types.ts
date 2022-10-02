@@ -1,4 +1,11 @@
 export type TableName = 'POST' | 'COMMENT' | 'POST_CATEGORY' | 'CATEGORY'
+
+export interface Pagination {
+  limit?: string
+  page?: string
+  offset?: string
+}
+
 export interface PostSchema {
   id: string
   title?: string

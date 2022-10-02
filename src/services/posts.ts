@@ -1,5 +1,5 @@
 import PostModel from "../models/posts";
-import { KeyOfPostSchema, PostSchema } from "../types/db.types";
+import { KeyOfPostSchema, Pagination, PostSchema } from "../types/db.types";
 
 class PostsService {
   model: PostModel
@@ -7,9 +7,9 @@ class PostsService {
     this.model = new PostModel()
   }
 
-  async getPosts(payload: Partial<PostSchema>) {
+  async getPosts(filter: Partial<PostSchema>, pagination: Pagination) {
     const projects: KeyOfPostSchema[] = ['id', 'title', 'is_published', 'created_at', 'modified_at']
-    return await this.model.find(payload, projects)
+    return await this.model.find(filter, projects, pagination)
   }
 
   async createPost(payload: Partial<PostSchema>) {

@@ -4,13 +4,42 @@
     "colId": "a1426a60-9c6b-4e95-8a0d-771fbca5f633",
     "containerId": "",
     "name": "Get Posts",
-    "url": "http://localhost:3000/posts",
+    "url": "http://localhost:3000/posts?limit=2&offset=2",
     "method": "GET",
     "sortNum": 10000,
     "created": "2022-10-02T06:24:11.965Z",
-    "modified": "2022-10-02T06:24:44.308Z",
+    "modified": "2022-10-02T11:56:35.564Z",
     "headers": [],
-    "params": [],
+    "params": [
+      {
+        "name": "title",
+        "value": "Sample",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "is_published",
+        "value": "1",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "id",
+        "value": "130ede39-59e6-4a71-a7c8-eb43037a6bba",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "limit",
+        "value": "2",
+        "isPath": false
+      },
+      {
+        "name": "offset",
+        "value": "2",
+        "isPath": false
+      }
+    ],
     "tests": []
   },
   {
@@ -37,11 +66,11 @@
     "colId": "a1426a60-9c6b-4e95-8a0d-771fbca5f633",
     "containerId": "",
     "name": "Delete Post",
-    "url": "http://localhost:3000/posts/:id",
+    "url": "http://localhost:3000/posts/{idaa}",
     "method": "DELETE",
     "sortNum": 20000,
     "created": "2022-10-02T06:28:54.110Z",
-    "modified": "2022-10-02T06:29:26.166Z",
+    "modified": "2022-10-02T11:56:34.352Z",
     "headers": [],
     "params": [],
     "tests": []

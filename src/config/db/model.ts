@@ -1,5 +1,6 @@
 import { connectDB } from './connection'
 import { v4 as uuid } from 'uuid';
+import { Pagination } from '../../types/db.types';
 
 export default class Model<TableName, TableSchema> {
   readonly table: string
@@ -7,10 +8,18 @@ export default class Model<TableName, TableSchema> {
     this.table = (tableName as string).toLowerCase()
   }
 
-  async find(filter: Partial<TableSchema>, project: Array<keyof TableSchema>) {
+  async find(filter: Partial<TableSchema>, project: Array<keyof TableSchema>, pagination: Pagination) {
     const conditions = this.toConditions(filter)
     const db = await connectDB()
-    let statement = `SELECT ${project.join(',')} FROM ${this.table} ${conditions && 'WHERE ' + conditions}`
+    let statement = `
+    SELECT ${project.join(',')} 
+    FROM ${this.table} 
+    ${conditions && 'WHERE ' + conditions}
+    ${pagination.limit && 'LIMIT ' + pagination.limit}
+    ${pagination.offset && 'OFFSET ' + pagination.offset}
+    `
+
+    console.log(statement, 'statement')
     return await db.all<TableSchema>(statement)
   }
 
