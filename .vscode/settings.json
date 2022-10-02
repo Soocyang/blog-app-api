@@ -1,0 +1,8 @@
+{
+  "thunder-client.saveToWorkspace": true,
+  "thunder-client.httpLibrary": "got",
+  "thunder-client.requestLayout": "Top/Bottom",
+  "thunder-client.saveRequestOnSend": false,
+  "thunder-client.showActivityFromCollection": false,
+  "thunder-client.requestTimeout": 0,
+}

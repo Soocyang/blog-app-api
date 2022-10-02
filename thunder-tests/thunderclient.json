@@ -1,0 +1,68 @@
+[
+  {
+    "_id": "ad5ad8f8-f1d3-4f8b-ab35-937545a028ea",
+    "colId": "a1426a60-9c6b-4e95-8a0d-771fbca5f633",
+    "containerId": "",
+    "name": "Get Posts",
+    "url": "http://localhost:3000/posts",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-10-02T06:24:11.965Z",
+    "modified": "2022-10-02T06:24:44.308Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "e0f3c78b-439b-4db5-8081-330fdfda44ec",
+    "colId": "a1426a60-9c6b-4e95-8a0d-771fbca5f633",
+    "containerId": "",
+    "name": "Create Post",
+    "url": "http://localhost:3000/posts",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2022-10-02T06:24:14.816Z",
+    "modified": "2022-10-02T06:25:45.183Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"Sample\",\n  \"content\": \"Lorem ipsum\",\n  \"is_published\": 1\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "ac61245d-6cfa-4257-bb38-f51f3d6103be",
+    "colId": "a1426a60-9c6b-4e95-8a0d-771fbca5f633",
+    "containerId": "",
+    "name": "Delete Post",
+    "url": "http://localhost:3000/posts/:id",
+    "method": "DELETE",
+    "sortNum": 20000,
+    "created": "2022-10-02T06:28:54.110Z",
+    "modified": "2022-10-02T06:29:26.166Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "fc4cf3a2-af9d-462b-8ef3-652c3ad32b64",
+    "colId": "a1426a60-9c6b-4e95-8a0d-771fbca5f633",
+    "containerId": "",
+    "name": "Update Post",
+    "url": "http://localhost:3000/posts/:id",
+    "method": "PUT",
+    "sortNum": 30000,
+    "created": "2022-10-02T06:29:35.176Z",
+    "modified": "2022-10-02T06:31:13.635Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"Sample Update\",\n  \"content\": \"Lorem Lorem\"\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]
