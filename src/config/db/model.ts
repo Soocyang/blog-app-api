@@ -16,7 +16,8 @@ export default class Model<TableName, TableSchema> {
 
   async insertOne(payload: Partial<TableSchema>) {
     const db = await connectDB()
-    const [cols, values] = this.toColumnsAndValues(payload)
+    let insertPayload = { id: uuid(), ...payload}
+    const [cols, values] = this.toColumnsAndValues(insertPayload)
     return await db.run(`INSERT INTO ${this.table} (${cols}) VALUES (${values})`)
   }
 
@@ -32,11 +33,11 @@ export default class Model<TableName, TableSchema> {
   }
 
   private toColumnsAndValues(payload: Partial<TableSchema>): [cols: string, values: string] {
-    let cols = 'id,'
-    let values = `'${uuid()}',`
+    const SEPERATOR = ','
+    let cols = '', values = ''
     for (const [key, value] of Object.entries(payload)) {
-      cols += `${key},`
-      values += `'${value}',`
+      cols += `${key}${SEPERATOR}`
+      values += `'${value}'${SEPERATOR}`
     }
     return [cols.substring(0, cols.length - 1), values.substring(0, values.length - 1)]
   }
