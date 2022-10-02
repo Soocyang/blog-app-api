@@ -1,5 +1,4 @@
 export type TableName = 'POST' | 'COMMENT' | 'POST_CATEGORY' | 'CATEGORY'
-
 export interface PostSchema {
   id: string
   title?: string
@@ -11,3 +10,5 @@ export interface PostSchema {
   created_at?: Date
   modified_at?: Date
 }
+
+export type KeyOfPostSchema = keyof PostSchema 

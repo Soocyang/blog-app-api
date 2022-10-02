@@ -3,8 +3,9 @@ import { catchAsync } from '../config';
 import { postService } from '../services';
 import { PostSchema } from '../types/db.types';
 
-export const getPosts: RequestHandler = catchAsync(async (_req, res, _next) => {
-  const posts = await postService.getPosts()
+export const getPosts: RequestHandler = catchAsync(async (req, res, _next) => {
+  const payload = req.query as Partial<PostSchema>
+  const posts = await postService.getPosts(payload)
   res.json(posts)
 })
 
