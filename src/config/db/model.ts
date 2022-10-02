@@ -18,8 +18,6 @@ export default class Model<TableName, TableSchema> {
     ${pagination.limit && 'LIMIT ' + pagination.limit}
     ${pagination.offset && 'OFFSET ' + pagination.offset}
     `
-
-    console.log(statement, 'statement')
     return await db.all<TableSchema>(statement)
   }
 
