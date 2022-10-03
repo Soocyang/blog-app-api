@@ -1,3 +1,4 @@
+import { Exception } from "../config";
 import PostModel from "../models/posts";
 import { KeyOfPostSchema, Pagination, PostSchema } from "../types/db.types";
 
@@ -16,8 +17,10 @@ class PostsService {
     return await this.model.insertOne(payload)
   }
 
-  getPostById() {
-
+  async getPostById(id: string) {
+    const post = await this.model.findOne({ id })
+    if(!post) throw new Exception('E1001', 'Post not found', 404)
+    return post
   }
 
   async updatePostById(id: string, payload: Partial<PostSchema>) {

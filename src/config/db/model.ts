@@ -21,6 +21,17 @@ export default class Model<TableName, TableSchema> {
     return await db.all<TableSchema>(statement)
   }
 
+  async findOne(filter: Partial<TableSchema>, project?: Array<keyof TableSchema>) {
+    const conditions = this.toConditions(filter)
+    const db = await connectDB()
+    let statement = `
+    SELECT ${project ? project.join(',') : '*'} 
+    FROM ${this.table} 
+    ${conditions && 'WHERE ' + conditions}
+    `
+    return await db.get<TableSchema>(statement)
+  }
+
   async insertOne(payload: Partial<TableSchema>) {
     const db = await connectDB()
     let insertPayload = { id: uuid(), ...payload}

@@ -93,5 +93,19 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "c66a39dd-ec83-4b79-8f1d-97bca3898df3",
+    "colId": "a1426a60-9c6b-4e95-8a0d-771fbca5f633",
+    "containerId": "",
+    "name": "Get Post By Id",
+    "url": "http://localhost:3000/posts/130ede39-59e6-4a71-a7c8-eb43037a6bba",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2022-10-03T15:14:32.262Z",
+    "modified": "2022-10-03T15:15:43.950Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
