@@ -8,7 +8,7 @@ export const toFiltersPagination = <Query extends Pagination>(payload: Query) =>
     offset: getOffset(limit, payload?.page || '1').toString(),
   }
   delete filter.limit
-  delete filter.page
+  delete filter.offset
   return { filter, pagination }
 }
 
