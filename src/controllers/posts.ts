@@ -22,7 +22,7 @@ export const createPost: RequestHandler = catchAsync(async (req, res, _next) => 
   res.json(posts)
 })
 
-export const updatePost: RequestHandler = catchAsync(async (req, res, _next) => {
+export const updatePostById: RequestHandler = catchAsync(async (req, res, _next) => {
   const id  = req.params?.id
   const payload = req.body as Partial<PostSchema>
   const posts = await postService.updatePostById(id, payload)

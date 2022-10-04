@@ -24,7 +24,7 @@ class PostsService {
   }
 
   async updatePostById(id: string, payload: Partial<PostSchema>) {
-
+    return await this.model.update({ id }, payload)
   }
 
   async deletePostById(id: string) {

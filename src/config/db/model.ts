@@ -39,10 +39,17 @@ export default class Model<TableName, TableSchema> {
     return await db.run(`INSERT INTO ${this.table} (${cols}) VALUES (${values})`)
   }
 
-  async updateOne(payload: Partial<TableSchema>) {
+  async update(filter: Partial<TableSchema>, payload: Partial<TableSchema>) {
     const db = await connectDB()
-    const [cols, values] = this.toColumnsAndValues(payload)
-    return await db.run(`INSERT INTO ${this.table} (${cols}) VALUES (${values})`)
+    const values = this.toValues(payload)
+    const conditions = this.toConditions(filter)
+    const query = `
+      UPDATE ${this.table} 
+      SET ${values} 
+      ,modified_at=DATETIME('NOW')
+      ${conditions && 'WHERE ' + conditions}
+    `
+    return await db.run(query)
   }
 
   async deleteOne(id: string) {
@@ -61,11 +68,20 @@ export default class Model<TableName, TableSchema> {
   }
 
   private toConditions(payload: Partial<TableSchema>) {
-    const STATEMENT = ' AND '
+    const SEPERATOR = ' AND '
     let conditions = ''
     for (const [key, value] of Object.entries(payload)) {
-      conditions += `${key}='${value}'${STATEMENT}`
+      conditions += `${key}='${value}'${SEPERATOR}`
     }
-    return conditions.substring(0, conditions.length - STATEMENT.length)
+    return conditions.substring(0, conditions.length - SEPERATOR.length)
+  }
+
+  private toValues(payload: Partial<TableSchema>){
+    const SEPERATOR = ','
+    let values = ''
+    for (const [key, value] of Object.entries(payload)) {
+      values += `${key}='${value}'${SEPERATOR}`
+    }
+    return values.substring(0, values.length - SEPERATOR.length)
   }
 }
