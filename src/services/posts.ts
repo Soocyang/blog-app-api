@@ -1,6 +1,7 @@
 import { Exception } from "../config";
+import { Pagination, PostSchema } from "../interfaces";
 import PostModel from "../models/posts";
-import { KeyOfPostSchema, Pagination, PostSchema } from "../types/db.types";
+import { KeyOfPostSchema } from "../types/posts";
 
 class PostsService {
   model: PostModel

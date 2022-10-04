@@ -1,8 +1,8 @@
 import { RequestHandler } from 'express';
 import { toFiltersPagination } from '../helpers';
+import { PostSchema } from '../interfaces';
 import { catchAsync } from '../middleware';
 import { postService } from '../services';
-import { PostSchema } from '../types/db.types';
 
 export const getPosts: RequestHandler = catchAsync(async (req, res, _next) => {
   const { filter, pagination } = toFiltersPagination(req.query)

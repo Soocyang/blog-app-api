@@ -1,6 +1,6 @@
 import { connectDB } from './connection'
 import { v4 as uuid } from 'uuid';
-import { Pagination } from '../../types/db.types';
+import { Pagination } from '../../interfaces';
 
 export default class Model<TableName, TableSchema> {
   readonly table: string

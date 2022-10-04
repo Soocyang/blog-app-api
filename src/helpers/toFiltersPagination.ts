@@ -1,4 +1,4 @@
-import { Pagination } from "../types/db.types"
+import { Pagination } from "../interfaces"
 
 export const toFiltersPagination = <Query extends Pagination>(payload: Query) => {
   const filter = payload
