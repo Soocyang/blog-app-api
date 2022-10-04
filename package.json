@@ -6,7 +6,7 @@
   "scripts": {
     "initdb": "ts-node src/initDB.ts",
     "test": "nodemon test/todo.test.ts",
-    "dev": "nodemon src/index.ts",
+    "dev": "nodemon src/index.ts --ignore thunder-tests/*.json",
     "start": "nodemon dist/index.ts"
   },
   "author": "",

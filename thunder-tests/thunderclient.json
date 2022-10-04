@@ -4,11 +4,11 @@
     "colId": "a1426a60-9c6b-4e95-8a0d-771fbca5f633",
     "containerId": "",
     "name": "Get Posts",
-    "url": "http://localhost:3000/posts?limit=2&offset=2",
+    "url": "http://localhost:3000/posts",
     "method": "GET",
     "sortNum": 10000,
     "created": "2022-10-02T06:24:11.965Z",
-    "modified": "2022-10-02T11:56:35.564Z",
+    "modified": "2022-10-04T14:43:42.582Z",
     "headers": [],
     "params": [
       {
@@ -32,11 +32,13 @@
       {
         "name": "limit",
         "value": "2",
+        "isDisabled": true,
         "isPath": false
       },
       {
         "name": "offset",
         "value": "2",
+        "isDisabled": true,
         "isPath": false
       }
     ],
@@ -80,16 +82,16 @@
     "colId": "a1426a60-9c6b-4e95-8a0d-771fbca5f633",
     "containerId": "",
     "name": "Update Post",
-    "url": "http://localhost:3000/posts/:id",
+    "url": "http://localhost:3000/posts/37286a19-84ba-4639-a328-72142c9bc34b",
     "method": "PUT",
     "sortNum": 30000,
     "created": "2022-10-02T06:29:35.176Z",
-    "modified": "2022-10-02T06:31:13.635Z",
+    "modified": "2022-10-04T15:03:05.130Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"title\": \"Sample Update\",\n  \"content\": \"Lorem Lorem\"\n}",
+      "raw": "{\n  \"title\": \"TEAPOTTT\",\n  \"meta_title\": \"AAAAAAAAAAAAAAAAAAAAAAA\",\n  \"content\": \"MIAOOOO\",\n  \"summary\": \"TEAPOT\",\n  \"published_at\": \"2022-10-02 06:41:43\"\n}",
       "form": []
     },
     "tests": []
@@ -99,11 +101,11 @@
     "colId": "a1426a60-9c6b-4e95-8a0d-771fbca5f633",
     "containerId": "",
     "name": "Get Post By Id",
-    "url": "http://localhost:3000/posts/130ede39-59e6-4a71-a7c8-eb43037a6bba",
+    "url": "http://localhost:3000/posts/37286a19-84ba-4639-a328-72142c9bc34b",
     "method": "GET",
     "sortNum": 40000,
     "created": "2022-10-03T15:14:32.262Z",
-    "modified": "2022-10-03T15:15:43.950Z",
+    "modified": "2022-10-04T14:47:40.634Z",
     "headers": [],
     "params": [],
     "tests": []
