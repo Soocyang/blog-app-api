@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "b7af3626-bb7b-4c85-8a0d-613a9ef5e6c9",
+    "name": "blog-app-dev",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2022-10-06T14:55:08.899Z",
+    "modified": "2022-10-06T14:55:52.383Z",
+    "data": [
+      {
+        "name": "url-public",
+        "value": "https://d944-175-138-131-251.ap.ngrok.io"
+      },
+      {
+        "name": "url-local",
+        "value": "http://localhost:4000"
+      }
+    ]
+  }
+]

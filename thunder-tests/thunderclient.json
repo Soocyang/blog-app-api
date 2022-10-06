@@ -4,44 +4,13 @@
     "colId": "a1426a60-9c6b-4e95-8a0d-771fbca5f633",
     "containerId": "",
     "name": "Get Posts",
-    "url": "http://localhost:3000/posts",
+    "url": "{{url-public}}/posts",
     "method": "GET",
     "sortNum": 10000,
     "created": "2022-10-02T06:24:11.965Z",
-    "modified": "2022-10-04T14:43:42.582Z",
+    "modified": "2022-10-06T15:00:26.293Z",
     "headers": [],
-    "params": [
-      {
-        "name": "title",
-        "value": "Sample",
-        "isDisabled": true,
-        "isPath": false
-      },
-      {
-        "name": "is_published",
-        "value": "1",
-        "isDisabled": true,
-        "isPath": false
-      },
-      {
-        "name": "id",
-        "value": "130ede39-59e6-4a71-a7c8-eb43037a6bba",
-        "isDisabled": true,
-        "isPath": false
-      },
-      {
-        "name": "limit",
-        "value": "2",
-        "isDisabled": true,
-        "isPath": false
-      },
-      {
-        "name": "offset",
-        "value": "2",
-        "isDisabled": true,
-        "isPath": false
-      }
-    ],
+    "params": [],
     "tests": []
   },
   {

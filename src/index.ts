@@ -17,8 +17,8 @@ import { Exception } from './config'
   app.use(logErrors)
   app.use(errorHandler)
 
-  app.listen(3000)
-  console.info('Express app started on port 3000')
+  app.listen(process.env.PORT)
+  console.info(`Blog api server started on port ${process.env.PORT}`)
 })()
 
 

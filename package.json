@@ -6,8 +6,11 @@
   "scripts": {
     "initdb": "ts-node src/initDB.ts",
     "test": "nodemon test/todo.test.ts",
-    "dev": "nodemon src/index.ts --ignore thunder-tests/*.json",
-    "start": "nodemon dist/index.ts"
+    "dev": "PORT=4000 nodemon src/index.ts --ignore --verbose thunder-tests/*",
+    "start": "ts-node src/index.ts",
+    "build": "npx tsc",
+    "staging": "npx tsc && PORT=3000 node dist/index.js",
+    "deploy": "pm2 start npm --name \"blog-api-api\" -- run \"staging\""
   },
   "author": "",
   "license": "ISC",
