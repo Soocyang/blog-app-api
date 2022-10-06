@@ -4,11 +4,11 @@
     "colId": "a1426a60-9c6b-4e95-8a0d-771fbca5f633",
     "containerId": "",
     "name": "Get Posts",
-    "url": "{{url-public}}/posts",
+    "url": "{{url-local}}/posts",
     "method": "GET",
     "sortNum": 10000,
     "created": "2022-10-02T06:24:11.965Z",
-    "modified": "2022-10-06T15:00:26.293Z",
+    "modified": "2022-10-06T15:04:33.949Z",
     "headers": [],
     "params": [],
     "tests": []
