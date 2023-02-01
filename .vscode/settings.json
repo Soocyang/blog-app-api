@@ -5,4 +5,13 @@
   "thunder-client.saveRequestOnSend": true,
   "thunder-client.showActivityFromCollection": false,
   "thunder-client.requestTimeout": 0,
+  "sqltools.useNodeRuntime": true,
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "name": "blog-app",
+      "database": "${workspaceFolder:blog-app-api}/database/blog.db"
+    }
+  ],
 }
