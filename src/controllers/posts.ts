@@ -23,15 +23,17 @@ export const createPost: RequestHandler = catchAsync(async (req, res, _next) => 
 })
 
 export const updatePostById: RequestHandler = catchAsync(async (req, res, _next) => {
-  const id  = req.params?.id
+  const id = req.params?.id
   const payload = req.body as Partial<PostSchema>
-  const posts = await postService.updatePostById(id, payload)
+  await postService.updatePostById(id, payload)
+  const posts = await postService.getPostById(id)
   res.json(posts)
 })
 
 
 export const deletePost: RequestHandler = catchAsync(async (req, res, _next) => {
-  const id  = req.params?.id
-  const posts = await postService.deletePostById(id)
+  const id = req.params?.id
+  const posts = await postService.getPostById(id)
+  await postService.deletePostById(id)
   res.json(posts)
 })
