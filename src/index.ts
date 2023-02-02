@@ -1,3 +1,4 @@
+import "reflect-metadata"
 import swaggerUi from 'swagger-ui-express'
 import swaggerJSDoc from 'swagger-jsdoc';
 import express from 'express'
@@ -6,6 +7,7 @@ import { json } from 'body-parser'
 import routes from './routes'
 import { errorHandler, logErrors } from './middleware'
 import { Exception } from './config'
+import { AppDataSource } from "./data-source";
 
 (() => {
   const APP_PORT = process.env.PORT || 4000
@@ -18,7 +20,7 @@ import { Exception } from './config'
       openapi: '3.0.0',
       info: {
         title: 'Blog API',
-        description: 'This is a REST API application made with Express. It retrieves blog posts related data', 
+        description: 'This is a REST API application made with Express. It retrieves blog posts related data',
         version: '1.0.0',
       },
       servers: [
@@ -41,6 +43,11 @@ import { Exception } from './config'
 
   app.listen(APP_PORT)
   console.info(`Blog api server started on port ${APP_PORT}`)
+
+  AppDataSource.initialize()
+    .then(() => console.info('connected to sqlite db'))
+    .catch((error) => console.error(error))
+
 })()
 
 
