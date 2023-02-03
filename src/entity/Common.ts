@@ -1,9 +1,10 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
+import { PaginationQuery } from "./PaginationQuery"
 
 @Entity()
-export class Common {
+export class Common extends PaginationQuery {
   @PrimaryGeneratedColumn('uuid')
-  id: number
+  id: string
 
   @Column({ default: 'SYSTEM' })
   created_by: string

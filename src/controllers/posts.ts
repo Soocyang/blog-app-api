@@ -1,12 +1,10 @@
 import { RequestHandler } from 'express';
-import { toFiltersPagination } from '../helpers';
-import { PostSchema } from '../interfaces';
+import { Post } from '../entity/Post';
 import { catchAsync } from '../middleware';
 import { postService } from '../services';
 
 export const getPosts: RequestHandler = catchAsync(async (req, res, _next) => {
-  const { filter, pagination } = toFiltersPagination(req.query)
-  const posts = await postService.getPosts(filter, pagination)
+  const posts = await postService.getPosts(req.query)
   res.json(posts)
 })
 
@@ -17,14 +15,14 @@ export const getPostById: RequestHandler = catchAsync(async (req, res, _next) =>
 })
 
 export const createPost: RequestHandler = catchAsync(async (req, res, _next) => {
-  const payload = req.body as Partial<PostSchema>
+  const payload = req.body as Partial<Post>
   const posts = await postService.createPost(payload)
   res.json(posts)
 })
 
 export const updatePostById: RequestHandler = catchAsync(async (req, res, _next) => {
   const id = req.params?.id
-  const payload = req.body as Partial<PostSchema>
+  const payload = req.body as Partial<Post>
   await postService.updatePostById(id, payload)
   const posts = await postService.getPostById(id)
   res.json(posts)
@@ -35,5 +33,5 @@ export const deletePost: RequestHandler = catchAsync(async (req, res, _next) => 
   const id = req.params?.id
   const posts = await postService.getPostById(id)
   await postService.deletePostById(id)
-  res.json(posts)
+  res.json({ deleted: true, data: posts})
 })
