@@ -23,10 +23,10 @@ import { swaggerOptions } from "./config/swagger/swagger";
   app.use(errorHandler)
 
   app.listen(APP_PORT)
-  console.info(`Blog api server started on port ${APP_PORT}`)
+  console.info(`🚀 Blog api server started on \n\n  ✔ url: http://localhost:${APP_PORT} \n 📃 swaggerdoc: http://localhost:${APP_PORT}/api-docs/#/\n\n`)
 
   AppDataSource.initialize()
-    .then(() => console.info('connected to sqlite db'))
+    .then(() => console.info('synced to sqlite db'))
     .catch((error) => console.error(error))
 })()
 

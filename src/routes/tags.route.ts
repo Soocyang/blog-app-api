@@ -49,7 +49,7 @@ router.get('/:id', getTagById);
 /**
  * @swagger
  * /tags:
- *   tag:
+ *   post:
  *     summary: Create a tag 
  *     tags: 
  *      - tags
