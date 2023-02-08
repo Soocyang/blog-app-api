@@ -2,6 +2,7 @@ import { connectDB } from './connection'
 import { v4 as uuid } from 'uuid';
 import { Pagination } from '../../interfaces';
 
+/**  @deprecated as migrated to TypeORM*/
 export default class Model<TableName, TableSchema> {
   readonly table: string
   constructor(tableName: TableName) {
