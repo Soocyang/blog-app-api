@@ -4,21 +4,46 @@
     "colId": "a1426a60-9c6b-4e95-8a0d-771fbca5f633",
     "containerId": "",
     "name": "Get Posts",
-    "url": "{{url-local}}/posts?limit=2&offset=3",
+    "url": "{{url-local}}/posts?limit=100",
     "method": "GET",
     "sortNum": 10000,
     "created": "2022-10-02T06:24:11.965Z",
-    "modified": "2023-02-01T11:53:03.603Z",
+    "modified": "2023-02-03T13:50:53.905Z",
     "headers": [],
     "params": [
       {
         "name": "limit",
-        "value": "2",
+        "value": "100",
         "isPath": false
       },
       {
         "name": "offset",
-        "value": "3",
+        "value": "",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "id",
+        "value": "ab10c4bc-af82-4198-87cf-5",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "title",
+        "value": "test",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "is_published",
+        "value": "Y",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "created_at",
+        "value": "2023-02-02T14:14:34.000Z,2023-02-04T14:14:34.000Z",
+        "isDisabled": true,
         "isPath": false
       }
     ],
@@ -29,16 +54,16 @@
     "colId": "a1426a60-9c6b-4e95-8a0d-771fbca5f633",
     "containerId": "",
     "name": "Create Post",
-    "url": "http://localhost:3000/posts",
+    "url": "{{url-local}}/posts",
     "method": "POST",
     "sortNum": 20000,
     "created": "2022-10-02T06:24:14.816Z",
-    "modified": "2022-10-02T07:50:00.322Z",
+    "modified": "2023-02-03T13:34:56.027Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"title\": \"Sample AHHHHHHHHHHHHHHH\",\n  \"content\": \"Lorem ipsum\",\n  \"is_published\": 1\n}",
+      "raw": "{\n  \"title\": \"Sample HAR\",\n  \"content\": \"Lorem ipsum\",\n  \"is_published\": 1\n}",
       "form": []
     },
     "tests": []
@@ -52,12 +77,12 @@
     "method": "DELETE",
     "sortNum": 20000,
     "created": "2022-10-02T06:28:54.110Z",
-    "modified": "2023-02-01T13:37:53.752Z",
+    "modified": "2023-02-03T14:05:15.537Z",
     "headers": [],
     "params": [
       {
         "name": "id",
-        "value": "8f286bca-2fe7-49d6-9cd9-d524abcd6c11",
+        "value": "ad006cf9-c16d-430b-b63f-9e18d14344f0",
         "isPath": true
       }
     ],
@@ -68,16 +93,22 @@
     "colId": "a1426a60-9c6b-4e95-8a0d-771fbca5f633",
     "containerId": "",
     "name": "Update Post",
-    "url": "http://localhost:3000/posts/130ede39-59e6-4a71-a7c8-eb43037a6bba",
+    "url": "{{url-local}}/posts/{id}",
     "method": "PUT",
     "sortNum": 30000,
     "created": "2022-10-02T06:29:35.176Z",
-    "modified": "2022-10-04T15:32:36.556Z",
+    "modified": "2023-02-03T14:02:19.398Z",
     "headers": [],
-    "params": [],
+    "params": [
+      {
+        "name": "id",
+        "value": "a51df4d8-1267-4050-b2a9-fcaa5f497217",
+        "isPath": true
+      }
+    ],
     "body": {
       "type": "json",
-      "raw": "{\n  \"title\": \"TEAPOTTT\",\n  \"meta_title\": \"AAAAAAAAAAAAAAAAAAAAAAA\",\n  \"content\": \"MIAOOOO\",\n  \"summary\": \"TEAPOT\",\n  \"published_at\": \"2022-10-02 06:41:43\"\n}",
+      "raw": "{\n  \"is_published\": false\n}",
       "form": []
     },
     "tests": []
@@ -87,13 +118,173 @@
     "colId": "a1426a60-9c6b-4e95-8a0d-771fbca5f633",
     "containerId": "",
     "name": "Get Post By Id",
-    "url": "http://localhost:3000/posts/130ede39-59e6-4a71-a7c8-eb43037a6bba",
+    "url": "{{url-local}}/posts/{id}",
     "method": "GET",
     "sortNum": 40000,
     "created": "2022-10-03T15:14:32.262Z",
-    "modified": "2022-10-04T15:32:22.527Z",
+    "modified": "2023-02-03T13:53:52.898Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "id",
+        "value": "ad006cf9-c16d-430b-b63f-9e18d1sss4344f0",
+        "isPath": true
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "1dd10e41-2737-4e21-9b28-d51f2ca1bac4",
+    "colId": "a1426a60-9c6b-4e95-8a0d-771fbca5f633",
+    "containerId": "",
+    "name": "Test",
+    "url": "{{url-local}}/test",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-02-02T13:38:49.577Z",
+    "modified": "2023-02-02T13:39:01.827Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "ba4b8ea8-5319-4213-9ac9-ec84d0da1dc0",
+    "colId": "f0249577-a022-4ff3-a48e-e3495f7c981e",
+    "containerId": "",
+    "name": "Create Tags",
+    "url": "{{url-local}}/tags",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-02-08T14:29:45.574Z",
+    "modified": "2023-02-08T14:47:10.528Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"code\": \"TAILWIND\",\n  \"display_text\": \"Tailwind CSS\",\n  \"color\": \"cyan\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "0659466d-5e2f-48fd-ae9a-64f2e8ed2e01",
+    "colId": "f0249577-a022-4ff3-a48e-e3495f7c981e",
+    "containerId": "",
+    "name": "Delete Tags",
+    "url": "{{url-local}}/tags/{id}",
+    "method": "DELETE",
+    "sortNum": 50000,
+    "created": "2023-02-08T14:29:53.187Z",
+    "modified": "2023-02-08T14:49:29.631Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "id",
+        "value": "6ad419ad-4c0f-45fe-ad42-3f8fe6f8a3fa",
+        "isPath": true
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "[]",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "ab9c91cd-ee54-4612-897d-f6111cf1def7",
+    "colId": "f0249577-a022-4ff3-a48e-e3495f7c981e",
+    "containerId": "",
+    "name": "Update Tag",
+    "url": "{{url-local}}/tags/{id}",
+    "method": "PUT",
+    "sortNum": 40000,
+    "created": "2023-02-08T14:30:00.577Z",
+    "modified": "2023-02-08T14:52:33.772Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "id",
+        "value": "d8a14348-aa1c-4555-96db-e070def45875",
+        "isPath": true
+      }
+    ],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"color\": \"blue\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "cda78a01-46e7-4c62-ae6d-8dce869a17de",
+    "colId": "f0249577-a022-4ff3-a48e-e3495f7c981e",
+    "containerId": "",
+    "name": "Get Tag By Id",
+    "url": "{{url-local}}/tags/{id}",
+    "method": "GET",
+    "sortNum": 12500,
+    "created": "2023-02-08T14:30:10.199Z",
+    "modified": "2023-02-08T14:48:02.423Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "id",
+        "value": "d8a14348-aa1c-4555-96db-e070def45875",
+        "isPath": true
+      }
+    ],
+    "tests": []
+  },
+  {
+    "_id": "3703d0bc-4116-485b-bd69-420502cf33a2",
+    "colId": "f0249577-a022-4ff3-a48e-e3495f7c981e",
+    "containerId": "",
+    "name": "Get Tags",
+    "url": "{{url-local}}/tags",
+    "method": "GET",
+    "sortNum": 5000,
+    "created": "2023-02-08T14:30:25.972Z",
+    "modified": "2023-02-08T14:49:13.790Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "limit",
+        "value": "100",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "offset",
+        "value": "",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "id",
+        "value": "ab10c4bc-af82-4198-87cf-5",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "code",
+        "value": "TAILWIND",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "display_text",
+        "value": "Tailwind CSS",
+        "isDisabled": true,
+        "isPath": false
+      },
+      {
+        "name": "color",
+        "value": "cyan",
+        "isDisabled": true,
+        "isPath": false
+      }
+    ],
     "tests": []
   }
 ]
