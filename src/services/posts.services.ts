@@ -1,19 +1,13 @@
 import { Exception } from '../config';
-import PostModel from '../models/posts';
-
 import { AppDataSource } from '../data-source';
 import { Post } from '../entity/Post';
 import { Repository } from 'typeorm';
 import { generateFilters } from '../helpers/generateFilters';
 
 class PostsService {
-  model: PostModel
   postRepository: Repository<Post>
   constructor() {
     this.postRepository = AppDataSource.getRepository(Post)
-
-    // @deprecated
-    this.model = new PostModel()
   }
 
   async getPosts(filter: Partial<Post>) {
