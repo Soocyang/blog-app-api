@@ -56,28 +56,19 @@ router.get('/:id', getTagById);
  *     requestBody:
  *           required: true
  *           content:
- *             application/json:
- *               schema:
- *                 type: object
- *                 properties:
- *                   title: 
+ *              application/json:
+ *                schema:
+ *                  type: object
+ *                  properties:
+ *                    code:
  *                      type: string
- *                      example: How to Typescript
- *                   meta_title: 
+ *                      example: GIT
+ *                    display_text:
  *                      type: string
- *                      example: Typescript
- *                   content: 
+ *                      example: Git
+ *                    color:
  *                      type: string
- *                      example: Lorem ipsum x1000
- *                   summary: 
- *                      type: string
- *                      example: Lorem ipsum
- *                   url_key: 
- *                      type: string
- *                      example: how_to_typescript
- *                   is_published: 
- *                      type: boolean
- *                      example: false
+ *                      example: Orange
  *     responses:
  *       200:
  *         description: Returns the created tag
@@ -105,24 +96,15 @@ router.post('/', createTag);
  *           schema:
  *             type: object
  *             properties:
- *               title: 
- *                  type: string
- *                  example: How to Typescript
- *               meta_title: 
- *                  type: string
- *                  example: Typescript
- *               content: 
- *                  type: string
- *                  example: Lorem ipsum x1000
- *               summary: 
- *                  type: string
- *                  example: Lorem ipsum
- *               url_key: 
- *                  type: string
- *                  example: how_to_typescript
- *               is_published: 
- *                  type: boolean
- *                  example: false
+ *               code:
+ *                 type: string
+ *                 example: GIT
+ *               display_text:
+ *                 type: string
+ *                 example: Git
+ *               color:
+ *                 type: string
+ *                 example: Orange
  *     responses:
  *       200:
  *         description: Returns the updated tag details
