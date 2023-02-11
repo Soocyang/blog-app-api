@@ -15,7 +15,7 @@ export const getPostById: RequestHandler = catchAsync(async (req, res, _next) =>
 })
 
 export const createPost: RequestHandler = catchAsync(async (req, res, _next) => {
-  const payload = req.body as Partial<Post>
+  const payload = req.body as Partial<Omit<Post, 'tags'>> & { tags: string[]}
   const posts = await postService.createPost(payload)
   res.json(posts)
 })

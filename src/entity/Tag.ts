@@ -1,5 +1,6 @@
-import { Entity, Column } from "typeorm"
+import { Entity, Column, ManyToMany, JoinTable } from "typeorm"
 import { Common } from "./Common"
+import { Post } from "./Post"
 
 @Entity()
 export class Tag extends Common {
@@ -11,4 +12,8 @@ export class Tag extends Common {
 
   @Column({ nullable: true })
   color?: string
+
+  @ManyToMany(() => Post)
+  @JoinTable()
+  posts: Post[]
 }

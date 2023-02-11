@@ -25,7 +25,7 @@ export class Post extends Common {
   @Column({ default: 0 })
   likes?: number
 
-  @ManyToMany(() => Tag)
+  @ManyToMany((type) => Tag, (tag) => tag.posts, { cascade: true })
   @JoinTable()
   tags: Tag[]
 

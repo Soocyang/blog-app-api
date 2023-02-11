@@ -1,6 +1,7 @@
 
 import { DateTime } from "luxon";
 import { Between, Like } from "typeorm";
+import { convertBoolean } from "./convertBoolean";
 
 interface QueryType {
   [key: string]: any
@@ -33,10 +34,7 @@ export function generateFilters<Query extends QueryType>(query: Query, fields: F
     }
 
     if (fields[key] === 'boolean') {
-      const positive = ['1', 'true', 'Y', 'yes']
-      const negative = ['0', 'false', 'N', 'no']
-      if (positive.includes(value)) filterValue = 1
-      if (negative.includes(value)) filterValue = 0
+      filterValue = convertBoolean(value)
     }
     Object.assign(updated, { [key]: filterValue })
   }
