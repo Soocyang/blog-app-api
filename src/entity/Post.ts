@@ -1,5 +1,6 @@
-import { Entity, Column } from "typeorm"
+import { Entity, Column, ManyToMany, JoinTable } from "typeorm"
 import { Common } from "./Common"
+import { Tag } from "./Tag"
 
 @Entity()
 export class Post extends Common {
@@ -23,5 +24,9 @@ export class Post extends Common {
 
   @Column({ default: 0 })
   likes?: number
+
+  @ManyToMany(() => Tag)
+  @JoinTable()
+  tags: Tag[]
 
 }
