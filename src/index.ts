@@ -3,6 +3,7 @@ import swaggerUi from 'swagger-ui-express'
 import swaggerJSDoc from 'swagger-jsdoc';
 import express from 'express'
 import { json } from 'body-parser'
+import cors from 'cors'
 
 import routes from './routes'
 import { errorHandler, logErrors } from './middleware'
@@ -14,6 +15,7 @@ import { swaggerOptions } from "./config/swagger/swagger";
   const APP_PORT = process.env.PORT || 4000
   const app = express()
   app.use(json())
+  app.use(cors({ origin: '*' }))
   app.use('/', routes)
 
   const swaggerSpec = swaggerJSDoc(swaggerOptions);
