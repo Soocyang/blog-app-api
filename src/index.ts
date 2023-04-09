@@ -9,11 +9,13 @@ import { errorHandler, logErrors } from './middleware'
 import { Exception } from './config'
 import { AppDataSource } from "./data-source";
 import { swaggerOptions } from "./config/swagger/swagger";
+import morgan from "morgan";
 
 (() => {
   const APP_PORT = process.env.PORT || 4000
   const app = express()
   app.use(json())
+  app.use(morgan("tiny"))
   app.use('/', routes)
 
   const swaggerSpec = swaggerJSDoc(swaggerOptions);

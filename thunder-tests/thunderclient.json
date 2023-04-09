@@ -134,20 +134,6 @@
     "tests": []
   },
   {
-    "_id": "1dd10e41-2737-4e21-9b28-d51f2ca1bac4",
-    "colId": "a1426a60-9c6b-4e95-8a0d-771fbca5f633",
-    "containerId": "",
-    "name": "Test",
-    "url": "{{url-local}}/test",
-    "method": "GET",
-    "sortNum": 50000,
-    "created": "2023-02-02T13:38:49.577Z",
-    "modified": "2023-02-02T13:39:01.827Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
     "_id": "ba4b8ea8-5319-4213-9ac9-ec84d0da1dc0",
     "colId": "f0249577-a022-4ff3-a48e-e3495f7c981e",
     "containerId": "",

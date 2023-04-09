@@ -12,6 +12,6 @@ export const AppDataSource = new DataSource({
     Tag,
   ],
   synchronize: true,
-  logging: true,
+  logging: false,
 })
 
