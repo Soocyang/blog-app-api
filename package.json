@@ -2,22 +2,24 @@
   "name": "blog-app-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
     "initdb": "ts-node src/initDB.ts",
     "test": "nodemon test/todo.test.ts",
-    "dev": "nodemon src/index.ts",
+    "dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
+    "build": "tsoa spec-and-routes && tsc",
+    "start": "node build/src/server.js",
     "rasp:dev": "PORT=4000 nodemon src/index.ts",
-    "start": "ts-node src/index.ts",
-    "build": "npx tsc",
     "staging": "npx tsc && PORT=3000 node dist/index.js",
-    "deploy": "pm2 start npm --name \"blog-api-api\" -- run \"staging\""
+    "deploy": "pm2 start npm --name \"blog-api-api\" -- run \"staging\"",
+    "swagger": "tsoa spec"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
     "body-parser": "^1.20.0",
+    "concurrently": "^8.0.1",
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "joi": "^17.6.0",
@@ -30,6 +32,7 @@
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^4.6.0",
     "ts-node": "^10.8.2",
+    "tsoa": "^5.1.1",
     "typeorm": "^0.3.11",
     "uuid": "^9.0.0"
   },
