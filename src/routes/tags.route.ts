@@ -5,131 +5,79 @@ import { getTags, createTag, deleteTag, getTagById, updateTagById } from '../con
 
 const router = Router()
 
-/**
- * @swagger
- * tags: 
- * - tags
- * summary: endpoint performs tags entities operations
- * 
- */
+router.get('/', getTags
+  // #swagger.tags = ['tags']
+  // #swagger.summary = 'Retrieve a list of tags'
+);
 
-/**
- * @swagger
- * /tags:
- *   get:
- *     summary: Retrieve a list of tags
- *     tags: 
- *      - tags
- *     responses:
- *       200:
- *         description: Returns a list of tags
- */
-router.get('/', getTags);
+router.get('/:id', getTagById
+  /*
+  #swagger.tags = ['tags']
+  #swagger.summary = 'Retrieve a tag details by id'
+  #swagger.parameters['id'] = {
+        in: 'path',
+        description: 'Unique ID of the tag to retrieve.',
+        required: true,
+        type: 'string',
+        schema: 'string'
+  } 
+*/
+);
 
-/**
- * @swagger
- * /tags/{id}:
- *   get:
- *     summary: Retrieve a tag details by id
- *     tags: 
- *      - tags
- *     parameters:
- *           - in: path
- *             name: id
- *             required: true
- *             description: Unique ID of the tag to retrieve.
- *             schema:
- *               type: string
- *     responses:
- *       200:
- *         description: Returns a tag details
- */
-router.get('/:id', getTagById);
+router.post('/', createTag
+  /*
+    #swagger.tags = ['tags']
+    #swagger.summary = 'Create a tag'
+    #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/definitions/Tag"
+                    }  
+                }
+            }
+    }
+  */
+);
 
-/**
- * @swagger
- * /tags:
- *   post:
- *     summary: Create a tag 
- *     tags: 
- *      - tags
- *     requestBody:
- *           required: true
- *           content:
- *              application/json:
- *                schema:
- *                  type: object
- *                  properties:
- *                    code:
- *                      type: string
- *                      example: GIT
- *                    display_text:
- *                      type: string
- *                      example: Git
- *                    color:
- *                      type: string
- *                      example: Orange
- *     responses:
- *       200:
- *         description: Returns the created tag
- */
-router.post('/', createTag);
+router.put('/:id', updateTagById
+  /*
+    #swagger.tags = ['tags']
+    #swagger.summary = 'Update a tag by id'
+    #swagger.parameters['id'] = {
+          in: 'path',
+          description: 'Unique ID of the tag to retrieve.',
+          required: true,
+          type: 'string',
+          schema: 'string'
+    } 
+    #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/definitions/Tag"
+                    }  
+                }
+            }
+    }
+  */
+);
 
-/**
- * @swagger
- * /tags/{id}:
- *   put:
- *     summary: Update a tag by id
- *     tags: 
- *      - tags
- *     parameters:
- *      - in: path
- *        name: id
- *        required: true
- *        description: Unique ID of the tag to retrieve.
- *        schema:
- *          type: string
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               code:
- *                 type: string
- *                 example: GIT
- *               display_text:
- *                 type: string
- *                 example: Git
- *               color:
- *                 type: string
- *                 example: Orange
- *     responses:
- *       200:
- *         description: Returns the updated tag details
- */
-router.put('/:id', updateTagById);
-
-/**
- * @swagger
- * /tags/{id}:
- *   delete:
- *     summary: Delete a tag by id
- *     tags: 
- *      - tags
- *     parameters:
- *      - in: path
- *        name: id
- *        required: true
- *        description: Unique ID of the tag to delete.
- *        schema:
- *          type: string
- *     responses:
- *       200:
- *         description: Returns the deleted process info
- */
-router.delete('/:id', deleteTag);
+router.delete('/:id', deleteTag
+/*
+  #swagger.tags = ['tags']
+  #swagger.summary = 'Delete a tag by id'
+  #swagger.parameters['id'] = {
+        in: 'path',
+        description: 'Unique ID of the tag to delete.',
+        required: true,
+        type: 'string',
+        schema: 'string'
+  }
+*/
+);
 
 
 export default router

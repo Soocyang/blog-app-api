@@ -9,20 +9,14 @@
     {
       "url": "http://localhost:4000/",
       "description": "local server"
-    },
-    {
-      "url": "http://localhost:4000/",
-      "description": "the other server"
     }
   ],
   "tags": [
     {
-      "name": "posts",
-      "description": ""
+      "name": "posts"
     },
     {
-      "name": "tags",
-      "description": ""
+      "name": "tags"
     }
   ],
   "paths": {
@@ -104,7 +98,7 @@
               "type": "string",
               "example": "string"
             },
-            "description": "Unique ID of the post to retrieve."
+            "description": "Unique ID of the post to update."
           }
         ],
         "responses": {
@@ -150,6 +144,10 @@
     },
     "/tags/": {
       "get": {
+        "tags": [
+          "tags"
+        ],
+        "summary": "Retrieve a list of tags",
         "description": "",
         "parameters": [],
         "responses": {
@@ -159,17 +157,35 @@
         }
       },
       "post": {
+        "tags": [
+          "tags"
+        ],
+        "summary": "Create a tag",
         "description": "",
         "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
           }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tag"
+              }
+            }
+          }
         }
       }
     },
     "/tags/{id}": {
       "get": {
+        "tags": [
+          "tags"
+        ],
+        "summary": "Retrieve a tag details by id",
         "description": "",
         "parameters": [
           {
@@ -177,8 +193,10 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
-            }
+              "type": "string",
+              "example": "string"
+            },
+            "description": "Unique ID of the tag to retrieve."
           }
         ],
         "responses": {
@@ -188,6 +206,10 @@
         }
       },
       "put": {
+        "tags": [
+          "tags"
+        ],
+        "summary": "Update a tag by id",
         "description": "",
         "parameters": [
           {
@@ -195,17 +217,33 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
-            }
+              "type": "string",
+              "example": "string"
+            },
+            "description": "Unique ID of the tag to retrieve."
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
           }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tag"
+              }
+            }
+          }
         }
       },
       "delete": {
+        "tags": [
+          "tags"
+        ],
+        "summary": "Delete a tag by id",
         "description": "",
         "parameters": [
           {
@@ -213,8 +251,10 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
-            }
+              "type": "string",
+              "example": "string"
+            },
+            "description": "Unique ID of the tag to delete."
           }
         ],
         "responses": {
@@ -272,6 +312,23 @@
           "is_published": {
             "type": "boolean",
             "example": false
+          }
+        }
+      },
+      "Tag": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": "GIT"
+          },
+          "display_text": {
+            "type": "string",
+            "example": "Git"
+          },
+          "color": {
+            "type": "string",
+            "example": "Orange"
           }
         }
       }
