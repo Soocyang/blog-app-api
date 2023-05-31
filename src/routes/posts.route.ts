@@ -5,149 +5,79 @@ import { getPosts, createPost, deletePost, getPostById, updatePostById } from '.
 
 const router = Router()
 
-/**
- * @swagger
- * tags: 
- * - posts
- * summary: endpoint performs posts entities operations
- * 
- */
+router.get('/', getPosts
+  // #swagger.tags = ['posts']
+  // #swagger.summary = 'Retrieve a list of posts'
+);
 
-/**
- * @swagger
- * /posts:
- *   get:
- *     summary: Retrieve a list of posts
- *     tags: 
- *      - posts
- *     responses:
- *       200:
- *         description: Returns a list of posts
- */
-router.get('/', getPosts);
+router.get('/:id', getPostById
+  /*
+    #swagger.tags = ['posts']
+    #swagger.summary = 'Retrieve a post details by id'
+    #swagger.parameters['id'] = {
+          in: 'path',
+          description: 'Unique ID of the post to retrieve.',
+          required: true,
+          type: 'string',
+          schema: 'string'
+    } 
+  */
+);
 
-/**
- * @swagger
- * /posts/{id}:
- *   get:
- *     summary: Retrieve a post details by id
- *     tags: 
- *      - posts
- *     parameters:
- *           - in: path
- *             name: id
- *             required: true
- *             description: Unique ID of the post to retrieve.
- *             schema:
- *               type: string
- *     responses:
- *       200:
- *         description: Returns a post details
- */
-router.get('/:id', getPostById);
+router.post('/', createPost
+  /*
+    #swagger.tags = ['posts']
+    #swagger.summary = 'Create a post'
+    #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/definitions/Post"
+                    }  
+                }
+            }
+    }
+  */
+);
 
-/**
- * @swagger
- * /posts:
- *   post:
- *     summary: Create a post 
- *     tags: 
- *      - posts
- *     requestBody:
- *           required: true
- *           content:
- *             application/json:
- *               schema:
- *                 type: object
- *                 properties:
- *                   title: 
- *                      type: string
- *                      example: How to Typescript
- *                   meta_title: 
- *                      type: string
- *                      example: Typescript
- *                   content: 
- *                      type: string
- *                      example: Lorem ipsum x1000
- *                   summary: 
- *                      type: string
- *                      example: Lorem ipsum
- *                   url_key: 
- *                      type: string
- *                      example: how_to_typescript
- *                   is_published: 
- *                      type: boolean
- *                      example: false
- *     responses:
- *       200:
- *         description: Returns the created post
- */
-router.post('/', createPost);
+router.put('/:id', updatePostById
+  /*
+    #swagger.tags = ['posts']
+    #swagger.summary = 'Create a post'
+    #swagger.parameters['id'] = {
+          in: 'path',
+          description: 'Unique ID of the post to update.',
+          required: true,
+          type: 'string',
+          schema: 'string'
+    } 
+    #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/definitions/Post"
+                    }  
+                }
+            }
+    }
+  */
+);
 
-/**
- * @swagger
- * /posts/{id}:
- *   put:
- *     summary: Update a post by id
- *     tags: 
- *      - posts
- *     parameters:
- *      - in: path
- *        name: id
- *        required: true
- *        description: Unique ID of the post to retrieve.
- *        schema:
- *          type: string
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               title: 
- *                  type: string
- *                  example: How to Typescript
- *               meta_title: 
- *                  type: string
- *                  example: Typescript
- *               content: 
- *                  type: string
- *                  example: Lorem ipsum x1000
- *               summary: 
- *                  type: string
- *                  example: Lorem ipsum
- *               url_key: 
- *                  type: string
- *                  example: how_to_typescript
- *               is_published: 
- *                  type: boolean
- *                  example: false
- *     responses:
- *       200:
- *         description: Returns the updated post details
- */
-router.put('/:id', updatePostById);
-
-/**
- * @swagger
- * /posts/{id}:
- *   delete:
- *     summary: Delete a post by id
- *     tags: 
- *      - posts
- *     parameters:
- *      - in: path
- *        name: id
- *        required: true
- *        description: Unique ID of the post to delete.
- *        schema:
- *          type: string
- *     responses:
- *       200:
- *         description: Returns the deleted process info
- */
-router.delete('/:id', deletePost);
+router.delete('/:id', deletePost
+  /*
+    #swagger.tags = ['posts']
+    #swagger.summary = 'Delete a post by id'
+    #swagger.parameters['id'] = {
+          in: 'path',
+          description: 'Unique ID of the post to delete.',
+          required: true,
+          type: 'string',
+          schema: 'string'
+    } 
+  */
+);
 
 
 export default router

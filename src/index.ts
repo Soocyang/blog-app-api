@@ -4,6 +4,7 @@ import swaggerJSDoc from 'swagger-jsdoc';
 import express from 'express'
 import { json } from 'body-parser'
 import cors from 'cors'
+import swaggerDoc from '../swagger-output.json'
 
 import routes from './routes'
 import { errorHandler, logErrors } from './middleware'
@@ -18,8 +19,8 @@ import { swaggerOptions } from "./config/swagger/swagger";
   app.use(cors({ origin: '*' }))
   app.use('/', routes)
 
-  const swaggerSpec = swaggerJSDoc(swaggerOptions);
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+  // const swaggerSpec = swaggerJSDoc(swaggerOptions);
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc))
   app.all('*', (req, res, next) => next(new Exception('E0006', `Can't find ${req.originalUrl} on this service`, 404)))
   app.use(logErrors)
   app.use(errorHandler)
